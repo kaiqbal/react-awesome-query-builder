@@ -2,7 +2,7 @@ import { hot } from "react-hot-loader/root";
 import { AppContainer } from "react-hot-loader";
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
-import Demo from "./demo/demo";
+import Wrapper from "./demo/Wrapper";
 
 import "../css/antd.less";
 import "../css/styles.scss";
@@ -20,7 +20,7 @@ import '../css/styles.scss';
 import '../css/denormalize.scss';
 */
 
-const HotDemo = hot(Demo);
+const HotDemo = hot(Wrapper);
 const rootElement = window.document.getElementById("root");
 
 ReactDOM.render((

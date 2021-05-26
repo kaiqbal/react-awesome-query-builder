@@ -31,6 +31,8 @@ const skinToConfig = {
 
 export default (skin) => {
   const InitialConfig = skinToConfig[skin];
+  InitialConfig.conjunctions["AND"].label = "All of the following";
+  InitialConfig.conjunctions["OR"].label = "Any of the following";
 
   const conjunctions: Conjunctions = {
     ...InitialConfig.conjunctions,
@@ -202,7 +204,7 @@ export default (skin) => {
     },
     // canReorder: true,
     // canRegroup: true,
-    // showNot: true,
+    showNot: false,
     // showLabels: true,
     maxNesting: 5,
     canLeaveEmptyGroup: true,

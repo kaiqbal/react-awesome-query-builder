@@ -29,18 +29,18 @@
   "types": "modules/index.d.ts",
   "scripts": {
     "prepublish": "npm run build-npm",
-    "for-npm": "./scripts/for-npm.sh",
-    "for-gpr": "./scripts/for-gpr.sh",
-    "build-npm": "./scripts/build-npm.sh",
+    "for-npm": "bash ./scripts/for-npm.sh",
+    "for-gpr": "bash ./scripts/for-gpr.sh",
+    "build-npm": "bash ./scripts/build-npm.sh",
     "build-global": "NODE_ENV=production COMPRESS=1 ANALYZE=0 webpack modules/index.js",
-    "build-examples": "./scripts/build-examples.sh",
+    "build-examples": "bash ./scripts/build-examples.sh",
     "examples": "cd examples && npm i && npm start",
     "sandbox_ts": "cd sandbox && npm i && npm start",
     "sandbox_js": "cd sandbox_simple && npm i && npm start",
     "start": "npm i && npm run examples",
     "test": "karma start karma.conf.js",
-    "lint-fix": "./node_modules/.bin/eslint --ext .jsx --ext .js --ext .tsx --fix ./modules/ ./sandbox/ ./sandbox_simple/ ./examples/ ./tests/",
-    "lint": "./node_modules/.bin/eslint --ext .jsx --ext .js --ext .tsx ./modules/ ./sandbox/ ./sandbox_simple/ ./examples/ ./tests/"
+    "lint-fix": "bash ./node_modules/.bin/eslint --ext .jsx --ext .js --ext .tsx --fix ./modules/ ./sandbox/ ./sandbox_simple/ ./examples/ ./tests/",
+    "lint": "bash ./node_modules/.bin/eslint --ext .jsx --ext .js --ext .tsx ./modules/ ./sandbox/ ./sandbox_simple/ ./examples/ ./tests/"
   },
   "repository": {
     "type": "git",

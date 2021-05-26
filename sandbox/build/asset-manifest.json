@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/react-awesome-query-builder/static/js/main.07a2cb06.chunk.js",
+    "main.js.map": "/react-awesome-query-builder/static/js/main.07a2cb06.chunk.js.map",
+    "runtime-main.js": "/react-awesome-query-builder/static/js/runtime-main.fccd0824.js",
+    "runtime-main.js.map": "/react-awesome-query-builder/static/js/runtime-main.fccd0824.js.map",
+    "static/css/2.c4daf7d7.chunk.css": "/react-awesome-query-builder/static/css/2.c4daf7d7.chunk.css",
+    "static/js/2.eabe9fff.chunk.js": "/react-awesome-query-builder/static/js/2.eabe9fff.chunk.js",
+    "static/js/2.eabe9fff.chunk.js.map": "/react-awesome-query-builder/static/js/2.eabe9fff.chunk.js.map",
+    "index.html": "/react-awesome-query-builder/index.html",
+    "precache-manifest.5df4bcae4c447b2d2f4c81df11159790.js": "/react-awesome-query-builder/precache-manifest.5df4bcae4c447b2d2f4c81df11159790.js",
+    "service-worker.js": "/react-awesome-query-builder/service-worker.js",
+    "static/css/2.c4daf7d7.chunk.css.map": "/react-awesome-query-builder/static/css/2.c4daf7d7.chunk.css.map",
+    "static/js/2.eabe9fff.chunk.js.LICENSE.txt": "/react-awesome-query-builder/static/js/2.eabe9fff.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fccd0824.js",
+    "static/css/2.c4daf7d7.chunk.css",
+    "static/js/2.eabe9fff.chunk.js",
+    "static/js/main.07a2cb06.chunk.js"
+  ]
+}

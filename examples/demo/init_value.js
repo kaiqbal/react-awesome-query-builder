@@ -27,7 +27,7 @@ export default
         ]
       }
     },
-    "98a8a9ba-0123-4456-b89a-b16e721c8cd0": {
+ /*   "98a8a9ba-0123-4456-b89a-b16e721c8cd0": {
       "type": "rule",
       "properties": {
         "field": "stock",
@@ -99,7 +99,7 @@ export default
           }
         }
       }
-    }
+    }*/
   },
   "properties": {
     "conjunction": "AND",

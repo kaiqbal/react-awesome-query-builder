@@ -18,8 +18,18 @@
     "strictNullChecks": false,
     "noImplicitAny": true,
     "noUnusedLocals": false,
-    "noUnusedParameters": false
+    "noUnusedParameters": false,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
-  "include": ["modules"],
-  "exclude": ["node_modules"]
+  "include": [
+    "modules"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
