@@ -27,13 +27,15 @@ const {queryBuilderFormat, jsonLogicFormat, queryString, mongodbFormat, sqlForma
 //const initTree: ImmutableTree = checkTree(loadFromJsonLogic(initLogic, loadedConfig), loadedConfig);
 
 
-interface DemoQueryBuilderProps {
+export interface DemoQueryBuilderProps {
+  key: any;
   tree: ImmutableTree;
   config: Config;
   operator: string;
+  onBuilderChange(builderState: DemoQueryBuilderState, builderProps:DemoQueryBuilderProps) : void;
 }
 
-interface DemoQueryBuilderState {
+export interface DemoQueryBuilderState {
   operator: string;
   tree: ImmutableTree;
   expression: string;
@@ -41,8 +43,8 @@ interface DemoQueryBuilderState {
 
 export default class DemoQueryBuilder extends React.Component<DemoQueryBuilderProps, DemoQueryBuilderState> {
     private immutableTree: ImmutableTree;
-    private operator: string;
-    private expression: string
+    public operator: string;
+    public expression: string;
     
     constructor(props: DemoQueryBuilderProps){
       super(props);
@@ -70,12 +72,16 @@ export default class DemoQueryBuilder extends React.Component<DemoQueryBuilderPr
           <MenuItem value="none">
             <em>None</em>
           </MenuItem>   
-          <MenuItem value={"and"}>And</MenuItem>
-          <MenuItem value={"or"}>Or</MenuItem>
+          <MenuItem value={"and"}>and</MenuItem>
+          <MenuItem value={"or"}>or</MenuItem>
         </Select>
         <div>{this.state.expression}</div>
       </div>
     )
+
+    componentDidUpdate() {
+      this.props.onBuilderChange(this.state, this.props);
+    }
 
     renderBuilder = (props: BuilderProps) => (
       <div className="query-builder-container" style={{padding: "10px"}}>
@@ -93,7 +99,7 @@ export default class DemoQueryBuilder extends React.Component<DemoQueryBuilderPr
 
     onSelectorChange = (event) => {  
      this.operator = event.target.value;
-     this.expression = stringify(queryString(this.state.tree, this.props.config), undefined, 2);
+     this.expression = /*stringify(*/queryString(this.state.tree, this.props.config);/*, undefined, 2);*/
      this.updateResult();
     };
  

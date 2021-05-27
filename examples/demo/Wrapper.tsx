@@ -1,5 +1,5 @@
 import { Component } from "react";
-import DemoQueryBuilderState from "./demo"
+import DemoQueryBuilderState, { DemoQueryBuilderProps } from "./demo"
 import {
     Query, Builder, Utils, 
     //types:
@@ -34,11 +34,19 @@ import DemoQueryBuilderprops from"./demo";
  //   tree: ImmutableTree
 //}
 
-export default class Wrapper extends React.Component<any, any> {
-    constructor(props: any) {
+interface WrapperState {
+  expression: string, 
+  builders: DemoQueryBuilderState[]
+}
+
+export default class Wrapper extends React.Component<any, WrapperState> {
+  childStateMap = new Map();
+
+  constructor(props: any) {
       super(props);
   
       this.state = {
+        expression: "",
         builders: [
           {
             tree: initTree,
@@ -52,13 +60,19 @@ export default class Wrapper extends React.Component<any, any> {
           },
         ]
       };
+
+     // this.updateBuilderMap = this.updateBuilderMap.bind(this);
     }
 
     componentDidMount() {
      // return this.state.builders.map(builder => {
     }
     
+    updateBuilderMap(builderState: DemoQueryBuilderState, builderProps:DemoQueryBuilderProps) {
+      this.childStateMap[builderProps.key] = builderState;
+    }
 
+    /*
     formRow = () => {
       const items = [];
       for(let i = 0; i < this.state.builders.length; i++) {
@@ -71,40 +85,42 @@ export default class Wrapper extends React.Component<any, any> {
         );
       }
       return items;// <>{items}</>;
-    }
+    }*/
     
+  generateFullExpression = () => {
+    var fullExpression = "";
+    this.childStateMap.forEach((value: DemoQueryBuilderState, key: string) => {
+      fullExpression += "(";
+      fullExpression += value.expression; 
+      fullExpression += ")";
+      if(value.operator == "and" || value.operator == "or") {
+        fullExpression += " ";
+        fullExpression += value.operator; 
+      }
+    });
+    this.setState(expression: stringify(fullExpression, undefined, 2));
+  }
 
+  render = () => (
+    <div className={"Wrapper"}>
+      <Grid container spacing={1}>
+        <Grid container direction="column"> 
+          {
+            this.state.builders.map((builder, index) => (
+              <Grid item>
+                <DemoQueryBuilder 
+                  tree={builder.tree} 
+                  config={builder.config} 
+                  operator={builder.operator} 
+                  key={index}
+                  onBuilderChange={this.updateBuilderMap.bind(this)}/>
+              </Grid>
+            ))   
+          }
+        </Grid> 
+      </Grid>
+      <button onClick={this.generateFullExpression}>Get expression</button>
+    </div>
+  )
 
-
-render = () => (
-  <div className={"Wrapper"}>
-    <Grid container spacing={1}>
-      <Grid container direction="column"> 
-        {
-          this.state.builders.map((builder) => (
-            <Grid item>
-              <DemoQueryBuilder tree={builder.tree} config={builder.config} operator={builder.operator}/>
-            </Grid>
-          ))   
-        }
-      </Grid> 
-    </Grid>
-  </div>
-)
-
-/*
-render = () => (
-  <div className={"DemoQueryBuilder"}>
-    <Grid container item>
-      <Grid container item>
-        <DemoQueryBuilder
-               tree={initTree} 
-               config={loadedConfig}/> 
-               </Grid>
-    </Grid>
-  </div>
-)
-  */
-
-      
 }
