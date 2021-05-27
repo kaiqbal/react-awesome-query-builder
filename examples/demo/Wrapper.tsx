@@ -43,12 +43,12 @@ export default class Wrapper extends React.Component<any, any> {
           {
             tree: initTree,
             config: loadedConfig,
-            operator: ""
+            operator: "Add"
           },
           {
             tree: initTree,
             config: loadedConfig,
-            operator: ""
+            operator: "Add"
           },
         ]
       };
@@ -61,7 +61,6 @@ export default class Wrapper extends React.Component<any, any> {
 
     formRow = () => {
       const items = [];
-
       for(let i = 0; i < this.state.builders.length; i++) {
         items.push(
           <>
@@ -71,7 +70,6 @@ export default class Wrapper extends React.Component<any, any> {
           </>
         );
       }
-
       return items;// <>{items}</>;
     }
     
